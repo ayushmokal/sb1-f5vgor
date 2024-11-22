@@ -1,0 +1,118 @@
+/* Base styles */
+:root {
+  --color-yo-blue: #007AFF;
+  --color-navy-900: #1E2B4D;
+  --color-background: #FFFFFF;
+  --color-text: #333333;
+}
+
+/* Typography */
+@font-face {
+  font-family: 'SF Pro Display';
+  src: url('sf-pro-display-regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SF Pro Display';
+  src: url('sf-pro-display-bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+}
+
+body {
+  font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Layout */
+.page-width {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Header */
+.site-header {
+  background: var(--color-background);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 1rem 0;
+}
+
+.header-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.site-nav {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.site-nav__link {
+  color: var(--color-navy-900);
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.site-nav__link:hover {
+  color: var(--color-yo-blue);
+}
+
+/* Hero section */
+.hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero__content {
+  position: relative;
+  z-index: 1;
+}
+
+.hero h1 {
+  color: var(--color-navy-900);
+  line-height: 1.1;
+}
+
+.hero__image img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* Buttons */
+.button-primary {
+  background: var(--color-yo-blue);
+  border-radius: 9999px;
+  color: white;
+  display: inline-flex;
+  align-items: center;
+  padding: 0.75rem 2rem;
+  font-weight: 600;
+  transition: background-color 0.2s;
+}
+
+.button-primary:hover {
+  background-color: #0056b3;
+}
+
+.button-secondary {
+  border: 2px solid #E5E7EB;
+  border-radius: 9999px;
+  color: var(--color-navy-900);
+  display: inline-flex;
+  align-items: center;
+  padding: 0.75rem 2rem;
+  font-weight: 600;
+  transition: border-color 0.2s;
+}
+
+.button-secondary:hover {
+  border-color: #D1D5DB;
+}

@@ -1,0 +1,14 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-404",
+      "settings": {
+        "title": "Page not found",
+        "text": "The page you were looking for does not exist.",
+        "button_label": "Return to home",
+        "button_link": "/"
+      }
+    }
+  },
+  "order": ["main"]
+}

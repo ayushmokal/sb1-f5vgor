@@ -1,0 +1,41 @@
+{% assign current_variant = product.selected_or_first_available_variant %}
+
+<div class="page-width">
+  <div class="product-single">
+    <div class="product-single__media">
+      {% for image in product.images %}
+        <div class="product-single__image">
+          <img src="{{ image | img_url: 'large' }}" 
+               alt="{{ image.alt | escape }}"
+               loading="lazy"
+               width="{{ image.width }}"
+               height="{{ image.height }}">
+        </div>
+      {% endfor %}
+    </div>
+
+    <div class="product-single__details">
+      <h1>{{ product.title }}</h1>
+      
+      <div class="product-single__price">
+        <span class="price">{{ current_variant.price | money }}</span>
+      </div>
+
+      {% form 'product', product %}
+        <input type="hidden" name="id" value="{{ current_variant.id }}">
+        
+        <button type="submit" name="add" class="button">
+          {% if current_variant.available %}
+            Add to cart
+          {% else %}
+            Sold out
+          {% endif %}
+        </button>
+      {% endform %}
+
+      <div class="product-single__description">
+        {{ product.description }}
+      </div>
+    </div>
+  </div>
+</div>

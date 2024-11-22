@@ -1,0 +1,96 @@
+<div class="hero relative bg-gradient-to-br from-blue-50 to-white">
+  <div class="page-width py-16 md:py-24">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+      <div class="hero__content">
+        <h1 class="text-5xl md:text-6xl font-bold text-navy-900 mb-6">
+          Begin Your Journey to
+          <span class="text-yo-blue block">Parenthood</span>
+        </h1>
+        
+        <p class="text-gray-600 text-lg mb-8">
+          {{ section.settings.description | default: "Take the first step in your family planning journey with our FDA-cleared home fertility test. Private, accurate, and designed for couples who want to be proactive about their future." }}
+        </p>
+        
+        <div class="flex flex-wrap gap-4">
+          <a href="{{ section.settings.primary_button_link | default: '/collections/all' }}" 
+             class="inline-flex items-center px-8 py-3 rounded-full bg-yo-blue text-white hover:bg-blue-600 transition-colors">
+            {% render 'icon-heart' %}
+            <span class="ml-2">{{ section.settings.primary_button_label | default: 'Start Your Journey' }}</span>
+          </a>
+          
+          <a href="{{ section.settings.secondary_button_link | default: '/pages/how-it-works' }}" 
+             class="inline-flex items-center px-8 py-3 rounded-full border-2 border-gray-300 text-gray-700 hover:border-gray-400 transition-colors">
+            {{ section.settings.secondary_button_label | default: 'Learn More' }}
+          </a>
+        </div>
+      </div>
+
+      <div class="hero__image relative">
+        <img src="{{ section.settings.image | image_url: width: 800 }}" 
+             alt="{{ section.settings.image_alt | escape }}"
+             class="rounded-3xl shadow-2xl">
+             
+        <div class="absolute bottom-4 right-4 bg-white rounded-xl shadow-lg p-4 flex items-center">
+          {% render 'icon-lock' %}
+          <div class="ml-3">
+            <p class="font-semibold text-gray-900">Private</p>
+            <p class="text-sm text-gray-600">Home Testing</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Hero",
+  "settings": [
+    {
+      "type": "text",
+      "id": "description",
+      "label": "Description",
+      "default": "Take the first step in your family planning journey with our FDA-cleared home fertility test. Private, accurate, and designed for couples who want to be proactive about their future."
+    },
+    {
+      "type": "text",
+      "id": "primary_button_label",
+      "label": "Primary Button Label",
+      "default": "Start Your Journey"
+    },
+    {
+      "type": "url",
+      "id": "primary_button_link",
+      "label": "Primary Button Link"
+    },
+    {
+      "type": "text",
+      "id": "secondary_button_label",
+      "label": "Secondary Button Label",
+      "default": "Learn More"
+    },
+    {
+      "type": "url",
+      "id": "secondary_button_link",
+      "label": "Secondary Button Link"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Hero Image"
+    },
+    {
+      "type": "text",
+      "id": "image_alt",
+      "label": "Image Alt Text",
+      "default": "Family on beach"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero",
+      "category": "Hero"
+    }
+  ]
+}
+{% endschema %}

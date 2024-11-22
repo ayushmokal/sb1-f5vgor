@@ -1,0 +1,15 @@
+{
+  "sections": {
+    "hero": {
+      "type": "hero",
+      "settings": {
+        "description": "Take the first step in your family planning journey with our FDA-cleared home fertility test. Private, accurate, and designed for couples who want to be proactive about their future.",
+        "primary_button_label": "Start Your Journey",
+        "primary_button_link": "/collections/all",
+        "secondary_button_label": "Learn More",
+        "secondary_button_link": "/pages/how-it-works"
+      }
+    }
+  },
+  "order": ["hero"]
+}

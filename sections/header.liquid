@@ -1,0 +1,72 @@
+<header class="site-header fixed w-full top-0 z-50 bg-white/95 backdrop-blur-sm">
+  <div class="page-width">
+    <div class="flex items-center justify-between h-20">
+      <div class="flex-shrink-0">
+        <a href="/" class="flex items-center">
+          {% if section.settings.logo != blank %}
+            <img src="{{ section.settings.logo | image_url: width: section.settings.logo_width }}"
+                 alt="{{ section.settings.logo_alt | default: shop.name }}"
+                 width="{{ section.settings.logo_width }}"
+                 height="{{ section.settings.logo_width | divided_by: logo_aspect_ratio | round }}"
+                 loading="lazy"
+                 class="h-8 w-auto">
+          {% else %}
+            <span class="text-2xl font-bold text-yo-blue">YO™</span>
+          {% endif %}
+        </a>
+      </div>
+
+      <nav class="hidden md:flex items-center space-x-8">
+        <div class="relative group">
+          <a href="/collections/all" class="text-gray-700 hover:text-yo-blue">Shop</a>
+        </div>
+        <a href="/pages/how-it-works" class="text-gray-700 hover:text-yo-blue">How YO Works</a>
+        <a href="/pages/support" class="text-gray-700 hover:text-yo-blue">Support</a>
+        <a href="/pages/about" class="text-gray-700 hover:text-yo-blue">About Us</a>
+      </nav>
+
+      <div class="flex items-center space-x-4">
+        <button type="button" class="text-gray-700 hover:text-yo-blue">
+          {% render 'icon-search' %}
+        </button>
+        <a href="/cart" class="text-gray-700 hover:text-yo-blue relative">
+          {% render 'icon-cart' %}
+          {% if cart.item_count > 0 %}
+            <span class="absolute -top-1 -right-1 bg-yo-blue text-white text-xs w-4 h-4 flex items-center justify-center rounded-full">
+              {{ cart.item_count }}
+            </span>
+          {% endif %}
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+{% schema %}
+{
+  "name": "Header",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo"
+    },
+    {
+      "type": "range",
+      "id": "logo_width",
+      "min": 50,
+      "max": 250,
+      "step": 10,
+      "default": 100,
+      "unit": "px",
+      "label": "Logo width"
+    },
+    {
+      "type": "text",
+      "id": "logo_alt",
+      "label": "Logo alt text",
+      "info": "Leave blank to use shop name"
+    }
+  ]
+}
+{% endschema %}
